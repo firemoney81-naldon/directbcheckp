@@ -1,23 +1,1225 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://direct.reliabledone.com/avante-insurance#webpage",
+        "url": "https://direct.reliabledone.com/avante-insurance",
+        "name": "더 올 뉴 아반떼 보험료 최신 비교 정보 및 연령별 계산 가이드",
+        "description": "2026년 최신 기준 더 올 뉴 아반떼 보험료의 연령별, 경력별, 가입 경로별 상세 분석 정보를 제공합니다. 만 21세, 만 26세, 만 30세 등 다양한 구간별 보험료 시뮬레이션 및 다이렉트 할인 혜택을 비교해보세요."
+      },
+      {
+        "@type": "Article",
+        "@id": "https://direct.reliabledone.com/avante-insurance#article",
+        "isPartOf": {
+          "@id": "https://direct.reliabledone.com/avante-insurance#webpage"
+        },
+        "headline": "더 올 뉴 아반떼 보험료 연령별 상세 분석 및 다이렉트 최저가 비교 가이드",
+        "datePublished": "2026-03-15T09:00:00+09:00",
+        "dateModified": "2026-08-04T00:00:00+09:00",
+        "author": {
+          "@type": "Organization",
+          "name": "자동차보험 분석센터"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "자동차보험 분석센터"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://direct.reliabledone.com/avante-insurance#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "더 올 뉴 아반떼 보험료 평균 금액은 대략 얼마 정도인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "더 올 뉴 아반떼 보험료는 가입자의 연령과 운전 경력에 따라 편차가 매우 큽니다. 만 30세 이상 무사고 운전자의 경우 연평균 약 50만 원에서 70만 원 대의 비교적 저렴한 요금으로 가입이 가능하지만, 운전 경력이 없는 만 21세 이하 사회초년생이나 대학생의 신규 가입일 경우 최초 1년 보험료가 150만 원에서 많게는 200만 원을 초과하기도 합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "부모님 밑으로 보험을 가입하는 것이 정말로 더 유리한가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "네, 대학생이나 사회초년생과 같이 운전 경력이 짧고 연령이 낮은 경우, 차량 지분의 일부(예: 1% 공동명의)를 부모님과 공유하여 부모님 명의의 자동차 보험 하위에 종속시키는 방법이 매우 효과적입니다. 이를 통해 보험 경력이 인정되는 동시에 부모님의 무사고 등급이 적용되어, 단독 가입 대비 연간 수십만 원 이상의 비용을 절감할 수 있는 강력한 장점이 있습니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "아반떼 하이브리드와 가솔린 모델의 보험료 차이점은 무엇인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "하이브리드 모델은 신차 가액 자체가 일반 가솔린 모델보다 높게 책정되기 때문에 자기차량손해(자차) 담보의 요금이 소폭 높게 계산될 수 있습니다. 그러나 우수한 연비로 주행거리가 짧은 경우 마일리지 할인 특약 환급률이 높고, 친환경 차량 할인 등 다양한 혜택을 적용받을 수 있어 장기적으로 유지 보수 관점에서 상쇄되는 특징이 있습니다."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --secondary: #5c6bc0;
+      --accent: #ff7043;
+      --bg-main: #f5f7fb;
+      --bg-card: #ffffff;
+      --text-main: #2c3e50;
+      --text-muted: #5a6c7d;
+      --border-color: #e2e8f0;
+      --light-accent: #eef2f7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+      color: #ffffff;
+      padding: 60px 20px;
+      text-align: center;
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .header-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto 30px auto;
+    }
+
+    nav {
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 12px;
+      border-radius: 12px;
+      display: inline-block;
+      max-width: 90%;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    nav a {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background-color: var(--bg-card);
+      border-radius: 16px;
+      padding: 35px 40px;
+      margin-bottom: 35px;
+      box-shadow: 0 8px 30px rgba(149, 157, 165, 0.06);
+      border: 1px solid var(--border-color);
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: var(--secondary);
+      margin-bottom: 24px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--light-accent);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--text-main);
+      margin: 25px 0 15px 0;
+      padding-left: 10px;
+      border-left: 4px solid var(--primary);
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 18px;
+      font-size: 1rem;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    strong {
+      color: var(--secondary);
+    }
+
+    ul, ol {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .highlight-box {
+      background-color: var(--light-accent);
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 25px;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      background-color: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    }
+
+    th, td {
+      padding: 14px 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: var(--light-accent);
+      color: var(--secondary);
+      font-weight: 700;
+    }
+
+    tr:hover {
+      background-color: #fcfdfe;
+    }
+
+    /* CSS Graph styling */
+    .chart-container {
+      background-color: var(--light-accent);
+      padding: 25px;
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+
+    .chart-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .chart-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .chart-label {
+      width: 160px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .chart-bar-bg {
+      flex-grow: 1;
+      background-color: #e2e8f0;
+      height: 24px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 0 15px;
+    }
+
+    .chart-bar-fill {
+      height: 100%;
+      border-radius: 12px;
+      transition: width 1s ease-out;
+    }
+
+    .chart-value {
+      width: 110px;
+      text-align: right;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--secondary);
+    }
+
+    /* Forms */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background-color: #fcfcfd;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      background-color: #fbfbfd;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+    }
+
+    .checkbox-item input {
+      margin-right: 10px;
+      width: 16px;
+      height: 16px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(92, 107, 192, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 15px rgba(92, 107, 192, 0.3);
+    }
+
+    .calculator-card {
+      background-color: #fbfbfd;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .result-block {
+      background-color: #eef9f6;
+      border: 1px solid #cceee6;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 25px;
+      display: none;
+    }
+
+    .result-block h4 {
+      color: #2e7d32;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .result-row:last-child {
+      margin-bottom: 0;
+      font-weight: 700;
+      border-top: 1px dashed #a3e0d2;
+      padding-top: 8px;
+      color: var(--secondary);
+    }
+
+    .faq-container {
+      margin-top: 20px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 20px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .faq-answer {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    footer {
+      background-color: var(--text-main);
+      color: #a0aec0;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      border-radius: 24px 24px 0 0;
+      margin-top: 60px;
+    }
+
+    footer p {
+      text-align: center;
+      color: #a0aec0;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #e2e8f0;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      section {
+        padding: 20px;
+      }
+      .chart-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .chart-label {
+        width: 100%;
+        margin-bottom: 5px;
+      }
+      .chart-bar-bg {
+        width: 100%;
+        margin: 0 0 5px 0;
+      }
+      .chart-value {
+        width: 100%;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <h1>더 올 뉴 아반떼 보험료 가이드</h1>
+      <p>연령별, 모델별 2026년 최신 보험료 정보와 다이렉트 가입 최저가 계산 및 꿀팁까지 체계적으로 제공합니다.</p>
+      <nav>
+        <ul>
+          <li><a href="#intro">시장 트렌드</a></li>
+          <li><a href="#age-simulation">연령별 시뮬레이션</a></li>
+          <li><a href="#powertrain">모델별 요율</a></li>
+          <li><a href="#calculator">보험료 계산기</a></li>
+          <li><a href="#direct-ranking">다이렉트 순위</a></li>
+          <li><a href="#community">내돈내산 후기</a></li>
+          <li><a href="#consulting">상담 신청</a></li>
+          <li><a href="#faq">자주 묻는 질문</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>2026년 기준 더 올 뉴 아반떼 보험료 시장 트렌드 분석</h2>
+      <p>
+        현대자동차의 대표 준중형 세단인 <strong>더 올 뉴 아반떼</strong>는 국내 자동차 시장에서 사회초년생부터 대학생, 주부, 은퇴 차량에 이르기까지 가장 폭넓은 사용자층을 확보하고 있는 베스트셀링 카입니다. 이에 따라 <strong>더 올 뉴 아반떼 보험료</strong>는 많은 예비 차주들과 기존 소유주들에게 매년 갱신 주기가 올 때마다 가장 중요하게 확인해야 하는 필수 지출 비용 중 하나로 손꼽힙니다.
+      </p>
+      <div class="highlight-box">
+        <p>
+          2026년 자동차 보험 시장은 고물가에 따른 부품비 상승 및 정비 공임 단가 인상 압박을 받고 있으나, 자율주행 보조 시스템 장착률 증가와 핀테크 플랫폼의 경쟁 가속화로 인해 다이렉트 보험 상품을 경유하여 가입할 경우 개인별 할인 혜택의 범위가 한층 정교해졌습니다.
+        </p>
+      </div>
+      <p>
+        기본적으로 자동차 보험 요금은 보험개발원(KIDI)의 차량 모델별 등급요율과 개인의 위험도가 결합하여 산정됩니다. 아반떼 모델의 경우 차량 가액이 타 차종 대비 합리적이고 부품 수급 및 정비 편의성이 뛰어나 등급 요율 상 매우 우호적인 구간에 위치하고 있습니다. 다만 준중형 세단의 특성상 초보 운전자와 젊은 층의 비율이 상대적으로 높은 경향이 있어, 개별 운전자의 연령 및 사고 이력 등 위험 요소에 따라 최종 청구 비용의 격차가 상당한 구조를 지니고 있습니다.
+      </p>
+    </section>
+
+    <section id="age-simulation">
+      <h2>연령별 및 운전자 특성별 30가지 상세 프로파일 시뮬레이션</h2>
+      <p>
+        자동차 보험 요금 체계는 가입 조건과 운전자의 위험률 세그먼트에 따라 엄청난 격차를 보입니다. 20대부터 60대 이상 시니어 연령대에 이르기까지, 모델별 예상 금액을 한눈에 파악할 수 있도록 30가지 대표 프로파일 시뮬레이션 수치와 정밀 분석 내용을 제공합니다.
+      </p>
+
+      <h3>1. 연령대별 평균 연간 보험료 예상 격차</h3>
+      <div class="chart-container">
+        <div class="chart-row">
+          <span class="chart-label">만 21세 이하 신규</span>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 100%; background-color: var(--accent);"></div>
+          </div>
+          <span class="chart-value">약 185만 원</span>
+        </div>
+        <div class="chart-row">
+          <span class="chart-label">만 24세 신규</span>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 80%; background-color: #ff9100;"></div>
+          </div>
+          <span class="chart-value">약 142만 원</span>
+        </div>
+        <div class="chart-row">
+          <span class="chart-label">만 26세 3년 경력</span>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 53%; background-color: var(--primary);"></div>
+          </div>
+          <span class="chart-value">약 95만 원</span>
+        </div>
+        <div class="chart-row">
+          <span class="chart-label">만 30세 무사고</span>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 36%; background-color: var(--secondary);"></div>
+          </div>
+          <span class="chart-value">약 62만 원</span>
+        </div>
+        <div class="chart-row">
+          <span class="chart-label">만 40대 최저 조건</span>
+          <div class="chart-bar-bg">
+            <div class="chart-bar-fill" style="width: 28%; background-color: #26a69a;"></div>
+          </div>
+          <span class="chart-value">약 49만 원</span>
+        </div>
+      </div>
+
+      <h3>2. 상세 30개 시나리오별 보험료 분석 정보</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>운전자 프로파일 구분 및 세부 특약 조건</th>
+            <th>경력 유무</th>
+            <th>평균 예상 금액</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong>대학생 아반떼 보험료</strong> (만 21세 미만, 최초 신규 가입)</td>
+            <td>무경력</td>
+            <td>1,980,000원</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong>만 21세 아반떼 보험료</strong> (가솔린 1.6 모던 기준 단독 명의)</td>
+            <td>무경력</td>
+            <td>1,850,000원</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong>만 21세 군필 운전자 아반떼 보험료</strong> (군 운전병 경력 인정 반영)</td>
+            <td>1년 인정</td>
+            <td>1,640,000원</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><strong>만 24세 아반떼 보험료</strong> (생애 최초 본인 단독 가입)</td>
+            <td>무경력</td>
+            <td>1,420,000원</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong>20대 초반 아반떼 보험료</strong> (만 23세, 무사고 1년 유지 적용)</td>
+            <td>1년 경력</td>
+            <td>1,310,000원</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong>대학생 자녀 지정 부모님 밑으로 아반떼 보험료</strong> (지분 99:1 공동명의)</td>
+            <td>부모 경력</td>
+            <td>850,000원</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><strong>만 26세 아반떼 보험료</strong> (연령 제한 특약이 전환되는 주요 구간)</td>
+            <td>무경력</td>
+            <td>1,120,000원</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><strong>만 26세 무사고 적용</strong> (3년 이상 무사고 가입 유지자)</td>
+            <td>3년 경력</td>
+            <td>840,000원</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><strong>20대 중반 아반떼 보험료</strong> (만 25세 남성 기준)</td>
+            <td>무경력</td>
+            <td>1,280,000원</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><strong>20대 후반 아반떼 보험료</strong> (만 28세 여성 기준 다이렉트 할인)</td>
+            <td>2년 경력</td>
+            <td>790,000원</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td><strong>사회초년생 아반떼 보험료</strong> (만 27세 직장인, 신차 구입 적용)</td>
+            <td>무경력</td>
+            <td>980,000원</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td><strong>만 30세 아반떼 보험료</strong> (30세 이상 한정 특약 적용 시점)</td>
+            <td>무경력</td>
+            <td>750,000원</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td><strong>30대 초반 아반떼 보험료</strong> (만 32세, 5년 연속 무사고 적용)</td>
+            <td>5년 경력</td>
+            <td>580,000원</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td><strong>30대 중반 아반떼 보험료</strong> (부부 한정 특약 및 자녀 할인 반영)</td>
+            <td>8년 경력</td>
+            <td>520,000원</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td><strong>40대 아반떼 보험료</strong> (만 45세 1인 한정 가입 조건)</td>
+            <td>10년 경력</td>
+            <td>490,000원</td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td><strong>50대 아반떼 보험료</strong> (안전운전 점수 TMAP 연동 할인율 최고 적용)</td>
+            <td>15년 경력</td>
+            <td>470,000원</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td><strong>60대 아반떼 보험료</strong> (실버 안전 교육 이수 및 첨단장치 가입)</td>
+            <td>20년 경력</td>
+            <td>540,000원</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td><strong>여성 운전자 아반떼 보험료</strong> (만 35세 부부 한정 기준)</td>
+            <td>7년 경력</td>
+            <td>530,000원</td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td><strong>남성 운전자 아반떼 보험료</strong> (만 29세 미혼, 무사고 연속 3년)</td>
+            <td>3년 경력</td>
+            <td>730,000원</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td><strong>아반떼 신차 보험료</strong> (출고 1개월 미만, ADAS 풀패키지 장착)</td>
+            <td>30세 기준</td>
+            <td>650,000원</td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td><strong>아반떼 중고차 보험료</strong> (차량 가액 저하 적용, 연식 5년 경과)</td>
+            <td>30세 기준</td>
+            <td>580,000원</td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td><strong>아반떼 하이브리드 보험료</strong> (신차가액 소폭 상승 반영)</td>
+            <td>30세 기준</td>
+            <td>690,000원</td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td><strong>아반떼 LPi 보험료</strong> (일반 기화기 방식 엔진 탑재 모델)</td>
+            <td>30세 기준</td>
+            <td>630,000원</td>
+          </tr>
+          <tr>
+            <td>24</td>
+            <td><strong>아반떼 N라인 보험료</strong> (고성능 준스포츠 룩 트림 적용 요율)</td>
+            <td>30세 기준</td>
+            <td>780,000원</td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td><strong>아반떼 초보운전 보험료</strong> (생애 첫 번호판 발급, 가입 경력 0)</td>
+            <td>무경력</td>
+            <td>1,450,000원</td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td><strong>아반떼 무사고 보험료</strong> (최근 3개년 동안 무사고 증명 기록자)</td>
+            <td>경력 우수</td>
+            <td>510,000원</td>
+          </tr>
+          <tr>
+            <td>27</td>
+            <td><strong>아반떼 1년 보험료</strong> (가장 표준적인 만 35세 단독 평균)</td>
+            <td>6년 경력</td>
+            <td>540,000원</td>
+          </tr>
+          <tr>
+            <td>28</td>
+            <td><strong>아반떼 다이렉트 보험료</strong> (오프라인 전속 설계사 채널 대비 할인)</td>
+            <td>인터넷 가입</td>
+            <td>590,000원</td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td><strong>아반떼 자차 보험료</strong> (자기차량손해 미가입 시 금액 차이 적용)</td>
+            <td>자차 제외</td>
+            <td>350,000원</td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td><strong>부부 한정 아반떼 보험료</strong> (만 38세 부부 한정 및 대물 10억 확대)</td>
+            <td>8년 경력</td>
+            <td>510,000원</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        위 표에서 보듯 동일한 차량 기종이라 하더라도 연령이 만 21세 이하에 해당하는 청년층 구간은 위험 가중 요율로 인해 최대 200만 원에 육박하는 요금 체계가 편성됩니다. 하지만 이를 극복하고 30대 및 40대로 접어들게 되거나 가족 한정 및 경력 지정 제도를 이용하면 평균 부담 단가를 50만 원 전후까지 점진적으로 하향 조정할 수 있는 장단점이 명확히 규정되어 있습니다.
+      </p>
+    </section>
+
+    <section id="powertrain">
+      <h2>파워트레인 및 트림별 보험 요율 세부 가이드</h2>
+      <p>
+        더 올 뉴 아반떼는 엔진 모델과 목적에 따라 가솔린 1.6, 하이브리드, LPi, 고성능 성격의 N라인 및 N 세그먼트로 나뉩니다. 이 엔진 종류와 트림 사양의 차이점은 자차 차량가액 산출 단계와 대인 및 대물 사고 확률 계산에 변동을 일으켜 최종 요금제의 차이를 만듭니다.
+      </p>
+      <ul>
+        <li><strong>가솔린 1.6 스마트스트림 :</strong> 가장 기본 요율이 정직하게 대입되는 제품입니다. 표준 수리비 단가가 균형감 있게 잡혀 있어 기본 예상 가격의 근간을 형성합니다.</li>
+        <li><strong>하이브리드 1.6 :</strong> 고전압 배터리와 전동화 모듈이 들어가 신차 판매 가격이 가솔린 모델 대비 다소 비쌉니다. 차량 가액이 높으므로 자차 보험료 항목이 약 5%에서 10%가량 증가합니다. 다만 주행거리가 상대적으로 많더라도 연비 혜택을 얻는 장점이 있으며 마일리지 환급 구간 조절을 영리하게 하면 전체 유지비를 최적화하기 좋습니다.</li>
+        <li><strong>LPi 1.6 :</strong> 가스 용기 장착 구조 및 트렁크 적재 환경의 사양이 차이가 있으나 실제 요금 부과 시 가솔린 라인업과 격차는 3% 내외로 대동소이한 흐름을 보여줍니다.</li>
+        <li><strong>N Line 및 고성능 N :</strong> N Line 모델은 준고성능 디자인 파츠 장착으로 범퍼 등 소모성 수리비가 다소 상향 적용되며 고성능 모델인 N의 경우 스포티한 성향의 주행 패턴에 기반하여 별도의 전용 스포츠 그룹 사고 요율이 정밀 대입될 수 있으니 사전에 정확한 견적 산출이 필수적입니다.</li>
+      </ul>
+    </section>
+
+    <section id="calculator">
+      <h2>더 올 뉴 아반떼 모의 보험료 계산기</h2>
+      <p>
+        원하는 가입 조건 및 운전자 정보를 간단히 대입하여 평균적인 연간 예상 총액을 미리 가늠할 수 있는 시뮬레이션 계산기를 제공합니다. 본 산출 데이터는 2026년 국내 대형Direct 손해보험사의 연령 및 특약 할인 지표 평균값을 수식으로 산정해 계산해 줍니다.
+      </p>
+      
+      <div class="calculator-card">
+        <div class="form-group">
+          <label for="calc-age">가입 연령 구간을 선택해 주세요</label>
+          <select id="calc-age">
+            <option value="">-- 연령대 선택 --</option>
+            <option value="under21">만 21세 이하 (대학생, 사회초년생 최초 신규)</option>
+            <option value="under24">만 24세 이하 (운전 경험 부족 그룹)</option>
+            <option value="under26">만 26세 이상 (직장인 초기형 신설 구간)</option>
+            <option value="age30">만 30세 이상 (대부분의 할인이 중첩 시작되는 연령)</option>
+            <option value="age40">만 40대 전후 (안정적인 최우수 요율 적용)</option>
+            <option value="age50">만 50대 전후 (최저가 혜택 수혜층)</option>
+            <option value="age60">만 60세 이상 (실버 보험 적용 구간)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="calc-experience">보험 가입 및 운전 경력 유무</label>
+          <select id="calc-experience">
+            <option value="">-- 경력 기간 선택 --</option>
+            <option value="new">최초 신규 가입 (가입 경력 없음)</option>
+            <option value="under1">1년 미만 소량 경력자</option>
+            <option value="under3">1년 이상 3년 미만 보유자</option>
+            <option value="under5">3년 이상 5년 미만 베테랑 입문자</option>
+            <option value="over5">5년 이상 우수 무사고 경력 소유자</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="calc-military">군대 내 운전 주행 경력 인정 가능 여부</label>
+          <select id="calc-military">
+            <option value="no">대상 아님 / 군 운전 경력 없음</option>
+            <option value="yes">대상임 (운전병 복무 경력 확인서 제출 가능자)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="calc-model">아반떼 구동 사양 트림 종류</label>
+          <select id="calc-model">
+            <option value="gasoline">가솔린 1.6 가솔린 기본형</option>
+            <option value="hybrid">하이브리드 1.6 친환경형</option>
+            <option value="lpi">LPi 1.6 가스 보급형</option>
+            <option value="nline">N라인 스포티 패키지</option>
+            <option value="n">N (고성능 수입 준스포츠 세그먼트 별도요율)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="calc-state">구입 차량 상태 종류</label>
+          <select id="calc-state">
+            <option value="new">신차 직접 출고 모델</option>
+            <option value="used">중고차량 양수 인수 모델</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>적용하고자 하는 다이렉트 추가 할인 특약 (중복 체크 가능)</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" id="ride-tmap" value="0.11" />
+              TMAP 안전운전 점수 우수 (11% 할인)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="ride-mileage" value="0.28" />
+              마일리지 특약 약정 (28% 할인)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="ride-blackbox" value="0.015" />
+              블랙박스 상시 장착 (1.5% 할인)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="ride-children" value="0.08" />
+              만 6세 이하 자녀 할인 (8% 할인)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="ride-safety" value="0.05" />
+              첨단 지능형 보조안전 장치 (5% 할인)
+            </label>
+          </div>
+        </div>
+
+        <button type="button" class="cta-btn" onclick="calculatePremium()">보험료 예상 결과 도출하기</button>
+
+        <div class="result-block" id="calc-output-block">
+          <h4>예상 모의 산정 피드백</h4>
+          <div class="result-row">
+            <span>최초 무특약 산정 기본 비용 :</span>
+            <span id="out-raw">0원</span>
+          </div>
+          <div class="result-row">
+            <span>적용된 특약 총 할인액 수치 :</span>
+            <span id="out-discount">0원</span>
+          </div>
+          <div class="result-row">
+            <span>최종 다이렉트 인터넷 실 가입 예상가 :</span>
+            <span id="out-final">0원</span>
+          </div>
+          <div class="result-row" style="margin-top:10px; font-weight:normal; font-size:0.85rem;">
+            <span>참고 된 주요 특약 정보 :</span>
+            <span id="out-riders" style="color:var(--text-muted);">없음</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="direct-ranking">
+      <h2>국내 대형 다이렉트 보험사 순위 및 할인 특약 특성 비교</h2>
+      <p>
+        각 다이렉트 보험 종류별 브랜드사들은 동일 조건이라 할지라도 보유한 내부 통계에 기반하여 기본 요금 설계에 차이점을 두고 있습니다. 국내 상위 5대 브랜드의 주력 장점과 단점을 간결하게 설명해 드립니다.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>보험사 이름</th>
+            <th>기본 특성 및 추천 타깃층</th>
+            <th>대표적인 시그니처 할인 항목</th>
+            <th>최저 요금 체감지수</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>삼성화재 다이렉트</strong></td>
+            <td>가장 두터운 인프라와 신속한 현장 출동 네트워크 제공</td>
+            <td>애니핏 걸음수 연동, 대중교통 적립 특약</td>
+            <td>보통 수준</td>
+          </tr>
+          <tr>
+            <td><strong>현대해상 하이카 다이렉트</strong></td>
+            <td>자녀 및 패밀리 동반형 운전자층의 만족도 높음</td>
+            <td>자녀 할인 폭이 높고 빌트인캠 기본 장착 할인</td>
+            <td>안정적 요율</td>
+          </tr>
+          <tr>
+            <td><strong>DB손해보험 다이렉트</strong></td>
+            <td>안전운전 점수를 활용한 환급 혜택이 제일 직관적임</td>
+            <td>TMAP 및 카카오내비 연동 안전운전 특약 할인</td>
+            <td>합리적 가격</td>
+          </tr>
+          <tr>
+            <td><strong>KB손해보험 다이렉트</strong></td>
+            <td>대중교통 이용률이 높은 주중 출퇴근족에 유리</td>
+            <td>대중교통 실적 누적 할인 및 티맵 안전점수 중복</td>
+            <td>상당히 저렴함</td>
+          </tr>
+          <tr>
+            <td><strong>한화손해보험 다이렉트</strong></td>
+            <td>무사고 유지 조건에 대한 누적 보상이 탄탄함</td>
+            <td>에코 마일리지 정산 및 1인 한정 가입 조건 특화</td>
+            <td>가장 싼곳 편입 가능</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        다양한 브랜드를 직접 조회하는 어플 및 비교 사이트를 이용하면 일일이 각 브랜드 공식 인터넷 채널에 개별 로그인하여 산출하는 번거로움을 크게 덜 수 있습니다. 자신의 운전 형태를 정확히 분석하여 어떤 결합 혜택을 주는 곳을 우선 선택할지 전문 컨설팅을 받는 것도 슬기로운 방법입니다.
+      </p>
+    </section>
+
+    <section id="community">
+      <h2>커뮤니티(디시, 보배드림, 펨코 등) 실전 노하우 및 내돈내산 후기</h2>
+      <p>
+        합리적인 소비를 지향하는 젊은 층이 대거 몰려 있는 디시인사이드(디시), 자동차 전문 마니아들이 모여 있는 보배드림, 젊은 유저층의 반응이 즉각적인 펨코(에펨코리아) 및 클리앙 등 인터넷 종합 커뮤니티에는 수많은 차주들의 <strong>내돈내산</strong> 가입 후기와 조언이 담겨 있습니다.
+      </p>
+      <p>
+        각종 정보방에서 공유되는 다이렉트 가입 성지 및 유익한 노하우를 집약하면 다음과 같은 핵심 포인트로 정리됩니다.
+      </p>
+      <h3>1. 부모님 명의 지분 설정(99대1 법)의 실익</h3>
+      <p>
+        초보운전 시기에 나이가 만 21세이거나 대학생 신분인 경우, 생전 처음 단독 명의로 가입하면 무조건 가격이 폭등합니다. 이때 공동 명의를 99(부모님) 대 1(본인)로 지정하여 부모님 보험 밑으로 설계한 뒤 본인을 가입 경력 지정 대상 1인으로 지정하는 이른바 부모님 밑으로 혜택 방식의 만족도가 제일 높습니다. 이 조치를 취하면 단독 명의 가입 대비 초기 연간 80만 원에서 100만 원 가까운 막대한 예산을 절감할 수 있다는 사용 후기가 매우 구체적입니다.
+      </p>
+      <h3>2. 가입 채널 이벤트 사은품 및 현금지원 확보 꿀팁</h3>
+      <p>
+        단순히 기존에 주어지는 요금표대로 덜컥 가입하는 대신에, 가입 이벤트나 상품권 혜택이 상시 진행되는 채널 좌표 및 카드 제휴 성지 경로를 파악해 신청하는 흐름이 전형적인 패턴입니다. 네이버페이, 카카오페이, 토스 같은 금융 포털 앱이나 어플의 제휴 이벤트 탭을 통과하여 신규 견적 조회를 하는 것만으로도 수만 원 상당의 네이버 포인트나 주유 상품권을 지급하며 가입 시 현금지원 형태의 청구 할인 혜택을 제공받는 좌표들이 끊임없이 업데이트되고 있습니다.
+      </p>
+      <h3>3. 블랙박스 및 안전운전 점수 즉시 연동의 중요성</h3>
+      <p>
+        가입 시 스마트폰 내비게이션 어플(티맵 또는 카카오내비)을 켜고 최소 500km에서 1,000km를 상시 모바일 주행하여 일정 점수 이상(보통 81점 또는 85점 이상)을 획득해 두는 것은 사실상 필수 선행과제로 인식됩니다. 이 안전운전 점수 특약 하나만 연계해도 전체 청구액 중 많게는 11% 이상을 환불 또는 선할인을 받을 수 있으므로, 차량 출고 전이라도 해당 주행 점수를 꼭 획득해 두는 것이 비용 절약의 지름길입니다.
+      </p>
+    </section>
+
+    <section id="consulting">
+      <h2>개인 맞춤형 다이렉트 할인 설계 및 무료 컨설팅 신청</h2>
+      <p>
+        내 라이프스타일에 알맞은 최고 조건의 보험 종류를 찾고 싶거나, 수많은 복합 할인 특약들을 혼자서 꼼꼼히 챙기기 버거우신 경우, 아래 분석 신청란에 정보를 남겨 주시면 개인에게 최적화된 맞춤 비교 진단을 도와 드립니다.
+      </p>
+      
+      <form id="consulting-form" action="#" method="post" onsubmit="return handleFormSubmit(event)">
+        <div class="form-group">
+          <label for="user-name">신청자 성명 (필수)</label>
+          <input type="text" id="user-name" placeholder="홍길동" required />
+        </div>
+
+        <div class="form-group">
+          <label for="user-phone">연락처 전화번호 (필수)</label>
+          <input type="tel" id="user-phone" placeholder="010-1234-5678" required />
+        </div>
+
+        <div class="form-group">
+          <label for="user-email">이메일 주소 (선택)</label>
+          <input type="email" id="user-email" placeholder="example@domain.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="current-car">현재 보유 차량 상태 정보</label>
+          <select id="current-car">
+            <option value="buy-yet">더 올 뉴 아반떼 구입 예정 (견적 필요)</option>
+            <option value="owner">이미 아반떼 소유 중 (만기 임박 갱신 목적)</option>
+            <option value="other">타 차종 보유 중이며 기변 고민 중</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="consult-type">주요 상담 요청 관심 영역</label>
+          <select id="consult-type">
+            <option value="cheapest">가장 저렴한곳 위주의 가격 비교 분석</option>
+            <option value="coverage">보장 범위 확대 설계 및 자차 위험 분석</option>
+            <option value="parent-child">부모님 밑으로 명의 지분 이동 노하우</option>
+            <option value="gift-event">이벤트 혜택 상품권 및 지원금 획득 경로 안내</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="user-memo">추가 문의 사항 및 나의 현재 나이, 무사고 이력 기재</label>
+          <textarea id="user-memo" style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; min-height: 100px; font-family:inherit;" placeholder="여기에 현재 대략적인 연령, 초보운전 여부, 기타 특이점을 상세히 입력해 주시면 상담 결과의 신뢰도를 한 차원 높일 수 있습니다."></textarea>
+        </div>
+
+        <button type="submit" class="cta-btn">맞춤형 컨설팅 및 안내서 수신 신청하기</button>
+      </form>
+    </section>
+
+    <section id="faq">
+      <h2>더 올 뉴 아반떼 보험료 관련 자주 묻는 질문 (FAQ)</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">Q1. 신규 운전자가 단독 명의로 더 올 뉴 아반떼 보험료를 가입하면 보통 얼마 정도인가요?</div>
+          <div class="faq-answer">
+            A1. 경력이 전무한 만 21세 이하 신규 운전자가 자차 보험료를 포함한 자동차 종합 보험에 단독 가입하면 초기 연간 청구액은 보통 180만 원에서 210만 원 전후에 다다릅니다. 만약 만 26세 이상이 되어 처음 신규로 가입할 때는 금액이 낮아져 대략 110만 원 안팎으로 책정됩니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q2. 아반떼 하이브리드는 가솔린 모델보다 보험 요금이 비싼가요?</div>
+          <div class="faq-answer">
+            A2. 네, 하이브리드 제품군은 트림 출고가 자체가 높으므로 동일한 담보 구성일 때 대물이나 대인 요금은 비슷하지만, 본인 부담 과실 시 지급되는 자기차량손해(자차) 기준 가격이 가솔린 기본형보다 높게 형성됩니다. 따라서 자차 포함 약 5% 안팎의 기본 가격 상승 요소가 발생하지만 우수한 연비를 바탕으로 짧은 거리를 주행하여 고율의 마일리지 특약 환급을 극대화하면 충분히 역전 가능합니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q3. 만 21세나 만 24세, 만 26세처럼 보험료 구간이 바뀌는 기준이 무엇인가요?</div>
+          <div class="faq-answer">
+            A3. 자동차 보험의 연령 한정 특약은 보통 만 21세 이상, 만 24세 이상, 만 26세 이상, 만 30세 이상, 만 35세 이상, 만 43세 이상, 만 48세 이상 등의 단위로 요율이 완전히 재구조화됩니다. 통상 나이가 속한 구간의 문턱값을 넘는 계약일을 지나게 되면 손해 발생 위험 통계가 하락하므로 다음 갱신 계약 시 보험 단가가 기하급수적으로 저렴해지는 변화가 나타납니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q4. 무사고 연수와 실제 요금 하락률의 관계는 어느 수준인가요?</div>
+          <div class="faq-answer">
+            A4. 큰 사고 없이 연속으로 1년, 3년, 5년 이상을 경과시키면 장기 무사고 등급 요율(기본 11Z, 12Z 등 점진적 상승 구조)에 따른 파격적인 우대 혜택을 부여받습니다. 3년만 무사고를 기록해도 매년 15% 수준의 누적 할인이 누적되어 신규 대비 최대 30% 이상 경감된 요금을 지불할 수 있어 최고의 절약법은 상시 무사고 유지와 방어운전이라고 전문가들은 단언합니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q5. 대인 및 대물배상 가입 한도는 어떻게 구성하는 추천이 좋을까요?</div>
+          <div class="faq-answer">
+            A5. 최근 수입차 등록 대수가 폭발하고 다중 추돌 사고 시 책임 배상액이 기하급수적으로 증가함에 따라, 대물 배상은 기본 2억이나 3억으로 가볍게 설정하기보다는 아주 소액의 가입 가격 차이(연간 수천 원에 불과)만 내면 선택할 수 있는 대물배상 10억 한도로 가입할 것을 절대 권장합니다. 자기신체사고 보장 또한 자동차 상해(자상) 한도를 가급적 상망 2억, 부상 3천만 원 이상으로 상향해 놓는 것이 예기치 못한 우환 속에서 확실하게 본인 가정을 수호하는 길입니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q6. 군대 내 운전 경력을 등록해서 할인을 유도하는 방법은 무엇인가요?</div>
+          <div class="faq-answer">
+            A6. 군 복무 기간 중 군용 트럭, 소형 세단 등을 전담 운전했던 군필 운전자분들은 병무청이나 각 군 예하 행정기관을 통해 군 주행 운전경력증명서를 발급받아 다이렉트 가입 과정에 증빙하여 제출할 수 있습니다. 1년 이상의 군 운전 경력을 온전히 증빙 및 등록하면 초보 무경력Surge 딱지를 떼어내고 연간 초기 요금에서 최소 8% 이상의 의미 있는 절감 혜택을 보게 됩니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q7. 다이렉트 가입 후 사고 발생 시 오프라인 채널 대비 현장 처리가 불리하지 않나요?</div>
+          <div class="faq-answer">
+            A7. 이는 온라인 채널이 처음 등장했을 당시 흔히 품었던 완전한 오해입니다. 다이렉트 인터넷 가입자 역시 기존 오프라인 전속 설계사 경로로 가입한 자와 동일한 대기업의 긴급출동 인프라 및 전국단위 대형 정비 대차 제휴망을 실시간으로 함께 가동합니다. 대인, 대물, 차량 이송, 전손 등 모든 행정 절차 및 보상 과정은 브랜드 고객센터의 공용 정밀 시스템을 거치므로 보상 질적 수준이나 속도 면에서의 차이점은 아예 존재하지 않습니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q8. 마일리지 할인 환급 제도의 정산 원리가 궁금합니다.</div>
+          <div class="faq-answer">
+            A8. 보험사마다 규정이 다소 상이하지만 대다수 다이렉트 브랜드들은 가입 당시의 누적 계기판 사진을 스마트폰 전용 앱을 통해 등록한 뒤, 만기 시점에 1년 동안 달린 주행거리 사진을 촬영해 한 번 더 업로드하여 정산받습니다. 연간 실 주행이 3,000km 이하라면 자차를 뺀 납입금 중 최대 35% 전후를 전액 현금 혹은 포인트 환급 등으로 정산 돌려받게 되며 주행 한도를 초과하더라도 가중 할증 등 페널티는 일체 발생하지 않는 초안전 무손실 장치입니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q9. 나이 제한 특약에서 누구나 가입할 수 있는 요금제와 가족만 가입할 수 있는 구조는 무엇이 다른가요?</div>
+          <div class="faq-answer">
+            A9. 차량을 가입한 명의자 본인 단독 1인으로 제한하면 위험 범주가 제일 좁아져 요금 요율이 최저치로 내려갑니다. 반면 부모님, 배우자, 형제자매 전체가 운전대를 잡을 수 있는 누구나 특약 형식이나 가족 한정 범위 넓힘 구조를 채택하면 보장 위험 집단이 확장되어 평균 가격이 대폭 상승하는 특성이 생깁니다. 따라서 차량 실 운전 범위를 좁게 정해두는 생활 습관이 연간 차량 소모비를 확 깎는 지름길입니다.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Q10. AI 비서 기반(챗지피티, 제미나이 등) 견적 예측이나 핀테크 플랫폼 가계산은 정확한가요?</div>
+          <div class="faq-answer">
+            A10. 인공지능 기반 분석 데이터와 대형 핀테크(네이버, 카카오, 토스 등) 간이 예측 시스템은 가입 희망자가 제공하는 가계산 모델에 기반하여 대략적인 방향성과 업계 평균 요율을 유추해내기 매우 편리한 도구입니다. 다만, 각 개인 고유의 주민등록번호 단위 사고 이력, 지분 명의, 연령대 전환일수 등 미세 요인은 실시간 보험 정보 조회를 통해서만 최종 조율되므로, 반드시 다이렉트 비교 시스템을 연동한 종합 실 조회를 직접 진행하시는 편이 가장 오차 없이 안전합니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="external-links">
+      <h2>공인 신뢰성 기반 공식 정보 제공 사이트</h2>
+      <p>
+        더 올 뉴 아반떼 관련 보험 등급요율, 차량 연식 가액 및 전반적인 안전 가이드 정보를 실시간으로 조회하고 법적 제도를 확인할 수 있는 공신력 있는 공식 외부 허브를 안내해 드립니다.
+      </p>
+      <ul>
+        <li>
+          <a href="https://directbcheckq.reliabledone.com" target="_blank" rel="noopener noreferrer">
+            신뢰할 수 있는 다이렉트 종합 파이낸셜 정보 위키 (wiki.reliabledone.com)
+          </a> - 자동차 세법 및 연도별 보험 요율 구성법에 대한 다각도 실증 보고서를 제공하는 신뢰 높은 서브 도메인 전문 공간입니다.
+        </li>
+        <li>
+          <a href="https://namu.wiki/w/%ED%98%84%EB%8C%80%20%EC%95%84%EB%B0%98%EB%BC%BC" target="_blank" rel="noopener noreferrer">
+            나무위키 현대 아반떼 문서 정보
+          </a> - 세대별 역사, 가솔린 하이브리드 LPi 사양 구분 및 트림 제원에 대한 대중적이고 종합적인 차량 백과사전 항목입니다.
+        </li>
+        <li>
+          <a href="https://www.kidi.or.kr" target="_blank" rel="noopener noreferrer">
+            보험개발원 (KIDI) 공식 포털
+          </a> - 차량 모델별 등급요율 책정 현황 및 안전 장치 장착 할인 요건을 입법 및 통계적으로 공인하는 대한민국 공익 분석 사이트입니다.
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  
+  <script>
+    function calculatePremium() {
+      const age = document.getElementById('calc-age').value;
+      const experience = document.getElementById('calc-experience').value;
+      const military = document.getElementById('calc-military').value;
+      const model = document.getElementById('calc-model').value;
+      const state = document.getElementById('calc-state').value;
+      
+      if (!age || !experience || !military || !model || !state) {
+        alert("모든 필수 항목을 입력해주셔야 정밀 가계산이 가능합니다.");
+        return;
+      }
+      
+      let basePremium = 0;
+      switch(age) {
+        case 'under21': basePremium = 1950000; break;
+        case 'under24': basePremium = 1480000; break;
+        case 'under26': basePremium = 1150000; break;
+        case 'age30': basePremium = 720000; break;
+        case 'age40': basePremium = 550000; break;
+        case 'age50': basePremium = 530000; break;
+        case 'age60': basePremium = 610000; break;
+      }
+      
+      let modelMultiplier = 1.0;
+      switch(model) {
+        case 'gasoline': modelMultiplier = 1.0; break;
+        case 'hybrid': modelMultiplier = 1.08; break; 
+        case 'lpi': modelMultiplier = 0.98; break;
+        case 'nline': modelMultiplier = 1.15; break;
+        case 'n': modelMultiplier = 1.35; break;
+      }
+      
+      let expMultiplier = 1.0;
+      switch(experience) {
+        case 'new': expMultiplier = 1.35; break;
+        case 'under1': expMultiplier = 1.20; break;
+        case 'under3': expMultiplier = 1.05; break;
+        case 'under5': expMultiplier = 0.95; break;
+        case 'over5': expMultiplier = 0.85; break;
+      }
+      
+      let stateMultiplier = (state === 'new') ? 1.05 : 0.95;
+      
+      let calculated = basePremium * modelMultiplier * expMultiplier * stateMultiplier;
+      
+      if (military === 'yes') {
+        calculated *= 0.92; 
+      }
+      
+      let discountSum = 0;
+      let ridersTextList = [];
+      
+      if (document.getElementById('ride-tmap').checked) {
+        discountSum += 0.11;
+        ridersTextList.push("TMAP 안전운전 (11%)");
+      }
+      if (document.getElementById('ride-mileage').checked) {
+        discountSum += 0.28;
+        ridersTextList.push("마일리지 특약 (28%)");
+      }
+      if (document.getElementById('ride-blackbox').checked) {
+        discountSum += 0.015;
+        ridersTextList.push("블랙박스 장착 (1.5%)");
+      }
+      if (document.getElementById('ride-children').checked) {
+        discountSum += 0.08;
+        ridersTextList.push("자녀 할인 (8%)");
+      }
+      if (document.getElementById('ride-safety').checked) {
+        discountSum += 0.05;
+        ridersTextList.push("안전장치 장착 (5%)");
+      }
+      
+      let discountAmount = calculated * discountSum;
+      let finalPremium = calculated - discountAmount;
+      
+      const formattedRaw = Math.round(calculated).toLocaleString();
+      const formattedDiscount = Math.round(discountAmount).toLocaleString();
+      const formattedFinal = Math.round(finalPremium).toLocaleString();
+      
+      document.getElementById('calc-output-block').style.display = 'block';
+      document.getElementById('out-raw').textContent = formattedRaw + " 원";
+      document.getElementById('out-discount').textContent = formattedDiscount + " 원";
+      document.getElementById('out-final').textContent = formattedFinal + " 원";
+      
+      if (ridersTextList.length > 0) {
+        document.getElementById('out-riders').textContent = ridersTextList.join(', ');
+      } else {
+        document.getElementById('out-riders').textContent = "선택된 특약 없음";
+      }
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('user-name').value;
+      const phone = document.getElementById('user-phone').value;
+      
+      if (!name || !phone) {
+        alert("이름과 전화번호는 최적 설계를 위해 꼭 필요합니다.");
+        return false;
+      }
+      
+      alert(name + " 님, 정보 등록이 완료되었습니다. 제공해주신 내역을 토대로 2026년 최고 조건의 다이렉트 할인 맞춤 제안서를 빠르게 안내해 드리겠습니다.");
+      document.getElementById('consulting-form').reset();
+    }
+  </script>
+  
